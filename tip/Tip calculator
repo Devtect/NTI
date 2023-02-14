@@ -1,0 +1,34 @@
+#If the bill was $150.00, split between 5 people, with 12% tip. 
+#Each person should pay (150.00 / 5) * 1.12 = 33.6
+#Round the result to 2 decimal places.
+
+# Write your welcome message
+print("Welcome to the tip calculator!")
+
+# Make a variable and ask user for total ammount of the bill
+bill = float(input("What was the total bill? $"))
+
+# Make a variable and ask the user for how much tip they want to give in percentage(10, 12 or 15)
+tip = int(input("How much tip would you like to give? 10, 12, or 15? "))
+
+# Make a variable and ask the user for the how many people wants to split the bill
+people = int(input("How many people to split the bill?"))
+
+
+# Make a variable to calculate the tip as percentage
+tip_as_percent = tip / 100
+
+# Make a variable to calculate total ammount of the tip
+total_tip_amount = bill * tip_as_percent
+
+# Make a variable to calculate the total ammount of the bill (bill + tip)
+total_bill = bill + total_tip_amount
+
+# Make a variable and calculate how many people will split the bill (total bill / people)
+bill_per_person = total_bill / people
+
+# Make a final variable and round the ammount with 2 digits after the floating point
+final_amount = round(bill_per_person, 2)
+
+# Write the final print with f string
+print(f"Each person should pay: ${final_amount}")

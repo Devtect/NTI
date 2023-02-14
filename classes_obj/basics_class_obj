@@ -1,0 +1,13 @@
+class Car:  # Creating a class called Car
+    # Creating properties for the class called Car
+    def __init__(self, brand, color, horsepower):
+        self.brand = brand  # Creating the property named brand of the car
+        self.color = color  # Creating the property named color of the car
+        self.horsepower = horsepower  # Creating the property named horsepower of the car
+
+
+car1 = Car("BMW", "Black", 500)  # Creating the 1st car with properties
+
+print("Brand: ", car1.brand)
+print("Color: ", car1.color)
+print("HP: ", car1.horsepower)

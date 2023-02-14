@@ -1,0 +1,13 @@
+# While loop in python is a loop that will continue to execute a block of code as long as a given conditon is true.
+
+# while condition:
+# Code here will be executed
+
+# Example while loop
+
+x = 0
+
+while x < 10:
+
+    x += 1
+    print(x)

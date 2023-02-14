@@ -1,0 +1,23 @@
+print("Welcome to the Leap Year Checker!")
+
+
+def main():
+    year = int(input("Please enter the year you want to check: "))
+
+    if year % 4 == 0:
+        if year % 100 == 1:
+            if year % 400 == 0:
+                print(f"{year} is a leap year")
+            else:
+                print(f"{year} is not a leap year")        
+        else:
+            print(f"{year} is a leap year")      
+    else:
+        print(f"{year} is not a leap year")    
+
+while True:
+    main()
+    if input("Do you want to check another year? Y/N?") != "Y":
+        break     
+    else:
+        print("Thank you for using Leap Year Checker!")

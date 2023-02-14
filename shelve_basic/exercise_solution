@@ -1,0 +1,32 @@
+import shelve
+
+# Open a shelve file
+with shelve.open('mydata') as data:
+    # Check if the user wants to see previously saved data
+    show_previous = input(
+        "Do you want to see the previously saved data? (yes/no) ")
+
+    if show_previous.lower() == 'yes':
+        # Retrieve data from the shelve file
+        name = data.get('name', 'Unknown')
+        age = data.get('age', 0)
+        country = data.get('country', 'Unknown')
+
+        print("Previously saved data:")
+        print("Name:", name)
+        print("Age:", age)
+        print("Country:", country)
+    else:
+        # Store new data in the shelve file
+        name = input("What is your name? ")
+        age = int(input("What is your age? "))
+        country = input("What is your country? ")
+
+        data['name'] = name
+        data['age'] = age
+        data['country'] = country
+
+        print("Current data:")
+        print("Name:", name)
+        print("Age:", age)
+        print("Country:", country)

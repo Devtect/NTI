@@ -1,0 +1,16 @@
+import cmath
+
+power = int(input("Enter the power of the complex number: "))
+real_part = float(input("Enter the real part of the complex number: "))
+imag_part = float(input("Enter the imaginary part of the complex number: "))
+
+complex_num = complex(real_part, imag_part)
+
+roots = []
+for k in range(power):
+    angle = 2 * cmath.pi * k / power
+    roots.append(cmath.polar(complex_num)[0]**(1/power) * cmath.exp(1j * angle + cmath.polar(complex_num)[1]/power))
+
+print("All possible roots:")
+for i, root in enumerate(roots):
+    print(f"Root {i+1}: {root}")

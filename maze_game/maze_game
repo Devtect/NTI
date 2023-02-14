@@ -1,0 +1,53 @@
+import random
+
+def generate_maze(size):
+    maze = []
+    for i in range(size):
+        maze.append([0] * size)
+    return maze
+
+def randomize_maze(maze):
+    size = len(maze)
+    for i in range(size):
+        for j in range(size):
+            maze[i][j] = random.choice([0, 1])
+    return maze
+
+def display_maze(maze):
+    for row in maze:
+        print(' '.join([str(cell) for cell in row]))
+
+def solve_maze(maze, start, end):
+    size = len(maze)
+    queue = [start]
+    visited = []
+    while queue:
+        current = queue.pop(0)
+        x, y = current
+        if current == end:
+            return True
+        if x > 0 and maze[x - 1][y] == 0 and [x - 1, y] not in visited:
+            queue.append([x - 1, y])
+            visited.append([x - 1, y])
+        if x < size - 1 and maze[x + 1][y] == 0 and [x + 1, y] not in visited:
+            queue.append([x + 1, y])
+            visited.append([x + 1, y])
+        if y > 0 and maze[x][y - 1] == 0 and [x, y - 1] not in visited:
+            queue.append([x, y - 1])
+            visited.append([x, y - 1])
+        if y < size - 1 and maze[x][y + 1] == 0 and [x, y + 1] not in visited:
+            queue.append([x, y + 1])
+            visited.append([x, y + 1])
+    return False
+
+if __name__ == '__main__':
+    size = int(input('Enter maze size: '))
+    maze = generate_maze(size)
+    maze = randomize_maze(maze)
+    display_maze(maze)
+    start = [0, 0]
+    end = [size - 1, size - 1]
+    if solve_maze(maze, start, end):
+        print('The maze is solvable.')
+    else:
+        print('The maze is not solvable.')

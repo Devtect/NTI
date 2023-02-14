@@ -1,0 +1,71 @@
+#include <iostream>
+#include <SDL2/SDL.h>
+#include <complex>
+
+const int WIDTH = 800;
+const int HEIGHT = 600;
+const int MAX_ITER = 1000;
+
+int main(int argc, char *argv[])
+{
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window *window = SDL_CreateWindow("Mandelbrot Set", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+    double xMin = -2.5;
+    double xMax = 1.0;
+    double yMin = -1.0;
+    double yMax = 1.0;
+
+    bool running = true;
+    while (running)
+    {
+        SDL_Event event;
+        while (SDL_PollEvent(&event))
+        {
+            switch (event.type)
+            {
+                case SDL_QUIT:
+                    running = false;
+                    break;
+                case SDL_MOUSEBUTTONDOWN:
+                {
+                    int x = event.button.x;
+                    int y = event.button.y;
+                    double xDiff = xMax - xMin;
+                    double yDiff = yMax - yMin;
+                    xMin = xMin + xDiff * x / WIDTH;
+                    xMax = xMin + xDiff * (x + 200) / WIDTH;
+                    yMin = yMin + yDiff * y / HEIGHT;
+                    yMax = yMin + yDiff * (y + 200) / HEIGHT;
+                    break;
+                }
+            }
+        }
+
+        for (int x = 0; x < WIDTH; x++)
+        {
+            for (int y = 0; y < HEIGHT; y++)
+            {
+                std::complex<double> c((double)x / WIDTH * (xMax - xMin) + xMin, (double)y / HEIGHT * (yMax - yMin) + yMin);
+                std::complex<double> z(0, 0);
+                int iterations = 0;
+                while (abs(z) < 2 && iterations < MAX_ITER)
+                {
+                    z = z * z + c;
+                    iterations++;
+                }
+                int color = iterations % 256;
+                SDL_SetRenderDrawColor(renderer, color, color, color, 255);
+                SDL_RenderDrawPoint(renderer, x, y);
+            }
+        }
+
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
+}

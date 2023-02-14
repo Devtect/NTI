@@ -1,0 +1,21 @@
+WIDTH = 80
+HEIGHT = 20
+MAX_ITER = 10
+
+def mandelbrot(c):
+    z = 0 + 0j
+    iterations = 0
+    while abs(z) < 2 and iterations < MAX_ITER:
+        z = z * z + c
+        iterations += 1
+    return iterations
+
+for row in range(HEIGHT):
+    for col in range(WIDTH):
+        c = (col - WIDTH/2) * 4.0/WIDTH + (row - HEIGHT/2) * 4.0j/HEIGHT
+        iterations = mandelbrot(c)
+        if iterations == MAX_ITER:
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print("")

@@ -1,0 +1,33 @@
+WIDTH = 80
+HEIGHT = 20
+MAX_ITER = 10
+
+def mandelbrot(c):
+    z = 0 + 0j
+    iterations = 0
+    while abs(z) < 2 and iterations < MAX_ITER:
+        z = z * z + c
+        iterations += 1
+    return iterations
+
+def display_mandelbrot(xmin, xmax, ymin, ymax):
+    for row in range(HEIGHT):
+        for col in range(WIDTH):
+            c = (xmin + (xmax - xmin) * col / WIDTH) + (ymin + (ymax - ymin) * row / HEIGHT) * 1j
+            iterations = mandelbrot(c)
+            if iterations == MAX_ITER:
+                print("*", end="")
+            else:
+                print(" ", end="")
+        print("")
+
+xmin, xmax = -2, 1
+ymin, ymax = -1, 1
+display_mandelbrot(xmin, xmax, ymin, ymax)
+
+while True:
+    zoom = input("Enter zoom level (xmin, xmax, ymin, ymax): ")
+    if zoom == "exit":
+        break
+    xmin, xmax, ymin, ymax = [float(x) for x in zoom.split(", ")]
+    display_mandelbrot(xmin, xmax, ymin, ymax)

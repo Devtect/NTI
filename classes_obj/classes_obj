@@ -1,0 +1,28 @@
+from getpass import getpass #import getpass 
+
+class Dog:
+    def __init__(self, breed, name, age):
+        self.breed = breed
+        self.name = name
+        self.age = int(age)
+
+    def bark(self):
+        print("Woof woof!")
+
+dog = Dog("Husky", "Snowball", 27)
+dog1 = Dog("Labrador", "Pickle", 27)
+
+while True:
+    option = getpass("What information would you like to have? \n 1. Breeds \n 2. Names \n 3. Ages \n 4. Exit \n") #getpass hides the input echoing
+    if option == "1":
+        print("Breed of the dogs are:", dog.breed + ", " + dog1.breed)
+        dog.bark()
+    elif option == "2":
+        print("Name of the dogs are:", dog.name + ", " + dog1.name)
+        dog.bark()
+    elif option == "3":
+        print(f"Age of the dogs are:", dog.age,",", dog1.age)
+        dog.bark()
+    elif option == "4":
+        print("The program has been closed")
+        break

@@ -1,0 +1,13 @@
+import math
+
+real = float(input("Enter the real part of the complex number: "))
+imag = float(input("Enter the imaginary part of the complex number: "))
+
+magnitude = math.sqrt(real**2 + imag**2)
+phase_angle = math.atan2(imag, real)
+
+print("Magnitude:", magnitude)
+print("Phase Angle (in radians):", phase_angle)
+
+
+# ask for a user input for the power of the complex number then ask for 2 more inputs for real and imaginary parts of the complex number and output all the possible roots
