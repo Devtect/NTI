@@ -1,29 +1,66 @@
 # Solution to exercise nr1
 
-
 def add_numbers(a, b):
     return a + b
 
-# Solution to exercise nr2
 
+# Solution to exercise nr2
 
 def string_length(string):
     return len(string)
 
-# Solution to exercise nr3
 
+# Solution to exercise nr3
 
 def max_number(numbers):
     return max(numbers)
 
-# Solution to exercise nr4
 
+# Solution to exercise nr4
 
 def square_number(num):
     return num * num
 
-# Solution to exercise nr5
 
+# Solution to exercise nr5
 
 def average(numbers):
     return sum(numbers) / len(numbers)
+
+
+# Solution to exercise nr6
+
+def sorted_odd_numbers(numbers):
+    odd_numbers = [num for num in numbers if num % 2 != 0]
+    return sorted(odd_numbers)
+
+
+# Solution to exercise nr7
+
+def remove_vowels(string):
+    vowels = 'aeiouAEIOU'
+    return ''.join([char for char in string if char not in vowels])
+
+
+# Solution to exercise nr8
+
+def words_with_e(words):
+    return sorted([word for word in words if 'e' in word], key=len, reverse=True)
+
+
+# Solution to exercise nr9
+
+def count_strings(strings):
+    count = {}
+    for string in strings:
+        if string in count:
+            count[string] += 1
+        else:
+            count[string] = 1
+    return count
+
+
+# Solution to exercise nr10
+
+def sum_of_squares(numbers):
+    return sum([num**2 for num in numbers if num % 2 == 0])
