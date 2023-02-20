@@ -1,0 +1,33 @@
+import math
+
+number = float(input("Please enter a number: "))
+
+# -------------------------------------------------------
+# Solution for exercise #1
+print(round(number))
+# -------------------------------------------------------
+# Solution for exercise #2
+print(math.ceil(number))
+# -------------------------------------------------------
+# Solution for exercise #3
+print(math.floor(number))
+# -------------------------------------------------------
+# Solution for exercise #4
+print(math.sqrt(number))
+# -------------------------------------------------------
+# Solution for exercise #5
+print(math.factorial(number))
+# -------------------------------------------------------
+# Solution for exercise #6
+print(abs(-34))
+# -------------------------------------------------------
+# Solution for exercise #7
+print(pow(number, 2))
+# -------------------------------------------------------
+# Solution for exercise #8
+number1 = input("Enter the first number: ")
+number2 = input("Enter the second number: ")
+number3 = input("Enter the third number: ")
+
+print(max(number1, number2, number3))
+print(min(number1, number2, number3))
