@@ -1,0 +1,108 @@
+# -------------------------------------------------------
+# Solution for exercise #1
+# Solution for a
+sentence = input("Enter a sentence: ")
+word = input("Enter a word: ")
+index = sentence.find(word)
+print(index)
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+word = input("Enter a word: ")
+index = data.find(word)
+print(index)
+
+# -------------------------------------------------------
+# Solution for exercise #2
+# Solution for a
+name = input("Enter your name: ")
+capitalized_name = name.capitalize()
+print(capitalized_name)
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+capitalized_data = data.title()
+print(capitalized_data)
+# -------------------------------------------------------
+# Solution for exercise #3
+# Solution for a
+sentence = input("Enter a sentence: ")
+upper_sentence = sentence.upper()
+print(upper_sentence)
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+upper_data = data.upper()
+print(upper_data)
+# -------------------------------------------------------
+# Solution for exercise #4
+# Solution for a
+sentence = input("Enter a sentence: ")
+lower_sentence = sentence.lower()
+print(lower_sentence)
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+lower_data = data.lower()
+print(lower_data)
+# -------------------------------------------------------
+# Solution for exercise #5
+# Solution for
+number = input("Enter a number: ")
+if number.isdigit():
+    print("The input is a digit.")
+else:
+    print("The input is not a digit.")
+    # Solution for b
+with open("file.txt") as f:
+    data = f.read()
+count = 0
+for char in data:
+    if char.isdigit():
+        count += 1
+print("The file contains {} digits.".format(count))
+# -------------------------------------------------------
+# Solution for exercise #6
+# Solution for a
+word = input("Enter a word: ")
+if word.isalpha():
+    print("The input is composed entirely of alphabets.")
+else:
+    print("The input is not composed entirely of alphabets.")
+    # Solution for b
+with open("file.txt") as f:
+    data = f.read()
+words = data.split()
+count = 0
+for word in words:
+    if word.isalpha():
+        count += 1
+print("The file contains {} words composed entirely of alphabets.".format(count))
+# -------------------------------------------------------
+# Solution for exercise #7
+# Solution for a
+sentence = input("Enter a sentence: ")
+word = input("Enter a word: ")
+count = sentence.count(word)
+print("The word '{}' appears {} times in the sentence.".format(word, count))
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+word = input("Enter a word: ")
+count = data.count(word)
+print("The word '{}' appears {} times in the file.".format(word, count))
+# -------------------------------------------------------
+# Solution for exercise #8
+# Solution for a
+sentence = input("Enter a sentence: ")
+old_word = input("Enter the word to be replaced: ")
+new_word = input("Enter the new word: ")
+new_sentence = sentence.replace(old_word, new_word)
+print(new_sentence)
+# Solution for b
+with open("file.txt") as f:
+    data = f.read()
+old_word = input("Enter the word to be replaced: ")
+new_word = input("Enter the new word: ")
+new_data = data.replace(old_word, new_word)
+print(new_data)
