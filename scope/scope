@@ -1,0 +1,19 @@
+# scope is the region that a variable is recognized
+#       A variable is only available from inside the region it is created.
+#       There a local and global scoped versions of a variable.
+
+
+# Global scope, available and works both inside and outside of function
+name = "I love coding!"
+
+
+def display_name():
+    # Local scope, available  and only works in the function
+    name = "Coding is awesome!"
+    print(name)
+
+
+# calling the function thus printing out the locally assigned variable
+display_name()
+# printing the globally assigned variable
+print(name)
