@@ -7,7 +7,7 @@ player_name = input("Please enter you character name: ")
 
 player1 = Player(player_name, 5, 12, 12)
 enemy1 = Enemy("Wild Boar", 10, 5, 5)
-healer1 = Healer("Priest", 2, 6, 6, 5)
+# healer1 = Healer("Priest", 2, 6, 6, 5)
 
 encounter1 = input(
     "A wild board attacks you! Do you want to defend yourself?(Y/N)")
