@@ -1,14 +1,53 @@
 import math
-pi = 3.14
-x = 1
-y = 2
-z = 3
 
-print(math.ceil(pi))
-print(math.floor(pi))
-print(math.sqrt(pi))
-print(math.factorial(z))
-print(abs(pi))
-print(pow(pi, 2))
-print(max(x, y, z))
-print(min(x, y, z))
+print("1. Round")
+print("2. Ceiling")
+print("3. Floor")
+print("4. Square root")
+print("5. Factorial")
+print("6. Absolute value")
+print("7. Exit")
+
+choice = input("Choose an operation")
+
+
+input = float(input("please enter a digit:"))
+
+
+def round_cal():
+    return round(input)
+
+
+def ceiling():
+    return math.ceil(input)
+
+
+def flooring():
+    return math.floor(input)
+
+
+def square():
+    return math.sqrt(input)
+
+
+def factorial_calc():
+    return math.factorial(input)
+
+
+def absolute_val():
+    return abs(input)
+
+
+if choice == "1":
+    print(round_cal())
+elif choice == "2":
+    print(ceiling())
+elif choice == "3":
+    print(flooring())
+elif choice == "4":
+    print(square())
+elif choice == "5":
+    print(math.factorial())
+elif choice == "6":
+    print(abs())
+# elif choice == "7":
