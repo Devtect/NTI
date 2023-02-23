@@ -21,6 +21,6 @@ if encounter1 == "Y":
 else:
     print(f"{enemy1.name} attacks {player1.name} and damages them for {enemy1.attack}")
     player1.hp -= enemy1.attack
-    if player1.hp > player1.maxhp:
-        heal()
+    # if player1.hp > player1.maxhp:
+    #     heal()
     print(player1)

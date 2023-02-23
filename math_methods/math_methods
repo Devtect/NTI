@@ -1,53 +1,63 @@
 import math
 
-print("1. Round")
-print("2. Ceiling")
-print("3. Floor")
-print("4. Square root")
-print("5. Factorial")
-print("6. Absolute value")
-print("7. Exit")
 
-choice = input("Choose an operation")
+# def round_cal():
+#     return round(input)
 
 
-input = float(input("please enter a digit:"))
+# def ceiling():
+#     return math.ceil(input)
 
 
-def round_cal():
-    return round(input)
+# def flooring():
+#     return math.floor(input)
 
 
-def ceiling():
-    return math.ceil(input)
+# def square():
+#     return math.sqrt(input)
 
 
-def flooring():
-    return math.floor(input)
+# def factorial_calc():
+#     return math.factorial(input)
 
 
-def square():
-    return math.sqrt(input)
+# def absolute_val():
+#     return abs(input)
 
+while True:
+    choice = input(''' 
+    1. Round
+    2. Ceiling
+    3. Floor
+    4. Square root
+    5. Factorial
+    6. Absolute value
+    7. Exit
+    Choose an operation: ''')
 
-def factorial_calc():
-    return math.factorial(input)
+    if choice == "7":
+        print("Thank you for using math methods!")
+        break
 
+    input_num = float(input("Please enter a number: "))
 
-def absolute_val():
-    return abs(input)
+    if choice == "1":
+        print(round(input_num))
+    elif choice == "2":
+        print(math.ceil(input_num))
+    elif choice == "3":
+        print(math.floor(input_num))
+    elif choice == "4":
+        print(math.sqrt(input_num))
+    elif choice == "5":
+        print(math.factorial(int(input_num)))
+    elif choice == "6":
+        print(abs(input_num))
+    else:
+        print("Invalid choice, please select a number from 1-7")
+        continue
 
-
-if choice == "1":
-    print(round_cal())
-elif choice == "2":
-    print(ceiling())
-elif choice == "3":
-    print(flooring())
-elif choice == "4":
-    print(square())
-elif choice == "5":
-    print(math.factorial())
-elif choice == "6":
-    print(abs())
-# elif choice == "7":
+    more_ops = input("Would like to do another operation?(Y/N)")
+    if more_ops.upper != "Y":
+        print("Thank you for using math methods!")
+        break
