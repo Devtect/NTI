@@ -60,4 +60,3 @@ while True:
     more_ops = input("Would like to do another operation?(Y/N)")
     if more_ops.upper != "Y":
         print("Thank you for using math methods!")
-        break
