@@ -1,5 +1,5 @@
 # to test is, add or remove the code in the line 2
-# x = 6
+x = 6
 # tries to do something
 try:
     print(x)
