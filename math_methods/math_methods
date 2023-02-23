@@ -1,29 +1,6 @@
 import math
 
 
-# def round_cal():
-#     return round(input)
-
-
-# def ceiling():
-#     return math.ceil(input)
-
-
-# def flooring():
-#     return math.floor(input)
-
-
-# def square():
-#     return math.sqrt(input)
-
-
-# def factorial_calc():
-#     return math.factorial(input)
-
-
-# def absolute_val():
-#     return abs(input)
-
 while True:
     choice = input(''' 
     1. Round
@@ -60,3 +37,4 @@ while True:
     more_ops = input("Would like to do another operation?(Y/N)")
     if more_ops.upper != "Y":
         print("Thank you for using math methods!")
+        break
