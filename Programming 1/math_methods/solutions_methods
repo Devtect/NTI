@@ -1,7 +1,7 @@
 import math
 
 number = float(input("Please enter a number: "))
-
+pow_num = int(input("please enter a number for the power"))
 # -------------------------------------------------------
 # Solution for exercise #1
 print(round(number))
@@ -22,7 +22,7 @@ print(math.factorial(number))
 print(abs(-34))
 # -------------------------------------------------------
 # Solution for exercise #7
-print(pow(number, 2))
+print(pow(number, pow_num))
 # -------------------------------------------------------
 # Solution for exercise #8
 number1 = input("Enter the first number: ")
