@@ -35,6 +35,8 @@ while True:
         continue
 
     more_ops = input("Would like to do another operation?(Y/N)")
-    if more_ops.upper != "Y":
+    if more_ops == "n":
         print("Thank you for using math methods!")
         break
+    elif more_ops == "y":
+        continue
