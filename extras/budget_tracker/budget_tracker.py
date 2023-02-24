@@ -1,66 +1,81 @@
+# Budget Tracker Program
+
+# Import the built-in 'shelve' module for storing data
 import shelve
 
-def get_income():
-    while True:
-        try:
-            income = float(input("Enter your income for the month: "))
-            return income
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+# Function to add income
+def add_income():
+    income = float(input("Enter the amount of income: "))
+    return income
 
-def get_expenses():
-    expenses = {}
-    while True:
-        name = input("Enter the name of an expense (or 'done' to finish): ")
-        if name == 'done':
-            return expenses
-        while True:
-            try:
-                amount = float(input("Enter the amount of the expense: "))
-                expenses[name] = amount
-                break
-            except ValueError:
-                print("Invalid input. Please enter a number.")
+# Function to add expenses
+def add_expense():
+    expense = float(input("Enter the amount of expense: "))
+    return expense
 
-def view_budget(income, expenses):
-    total_expenses = sum(expenses.values())
-    balance = income - total_expenses
-    print("Income:", income)
-    print("Expenses:")
-    for name, amount in expenses.items():
-        print(f"{name}: {amount}")
-    print("Total expenses:", total_expenses)
-    print("Balance:", balance)
+# Function to view current budget
+def view_budget(income, expense):
+    budget = income - expense
+    print("Your current budget is: ", budget)
+    return budget
 
+# Function to save budget data
+def save_budget(income, expense):
+    # Open a shelve database
+    db = shelve.open('budget_tracker')
+    # Store the data as key-value pairs
+    db['income'] = income
+    db['expense'] = expense
+    # Close the database
+    db.close()
+
+# Function to load budget data
+def load_budget():
+    # Open a shelve database
+    db = shelve.open('budget_tracker')
+    # Load the data as key-value pairs
+    income = db['income']
+    expense = db['expense']
+    # Close the database
+    db.close()
+    # Return the loaded data
+    return income, expense
+
+# Main function to run the program
 def main():
-    with shelve.open('budget_tracker') as db:
-        income = db.get('income')
-        expenses = db.get('expenses', {})
-        while True:
-            print("Options:")
-            print("  1. Enter income")
-            print("  2. Enter expenses")
-            print("  3. View budget")
-            print("  4. Quit")
-            choice = input("Enter an option number: ")
-            if choice == '1':
-                income = get_income()
-                db['income'] = income
-                print("Income saved.")
-            elif choice == '2':
-                expenses = get_expenses()
-                db['expenses'] = expenses
-                print("Expenses saved.")
-            elif choice == '3':
-                if income is None:
-                    print("Income not set. Please enter income first.")
-                else:
-                    view_budget(income, expenses)
-            elif choice == '4':
-                print("Exiting program.")
+    print("Welcome to Budget Tracker!")
+    # Load previous budget data if available
+    try:
+        income, expense = load_budget()
+        print("Previous income: ", income)
+        print("Previous expense: ", expense)
+    except:
+        # If no previous data is found, start with 0 for both income and expense
+        income = 0
+        expense = 0
+        print("No previous budget data found.")
+
+    # Add income or expenses
+    while True:
+        choice = input("Please select an operation: \n (1)add income \n (2)add expenses \n (3)view budget \n (4)quit \n")
+        if choice.upper() == '1':
+            income += add_income()
+        elif choice.upper() == '2':
+            expense += add_expense()
+        elif choice.upper() == '3':
+            view_budget(income, expense)
+        elif choice.upper() == '4':
+            save_data = input("Do you want to save the budget data? (Y/N)")
+            if save_data == 'Y' or save_data == 'y':
+                print("The budget has been saved.")
+                save_budget(income, expense)
                 break
             else:
-                print("Invalid input. Please enter a number from 1 to 4.")
+                print("The budget has not been saved.")
+                break
+        else:
+            print("Invalid choice. Please try again.")
 
+# Call the main function to run the program
 if __name__ == '__main__':
-    main()
+    main() 
