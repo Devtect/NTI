@@ -1,0 +1,10 @@
+n = int(input("Enter a positive integer: "))
+
+sum = 0
+count = 1
+
+while count <= n:
+    sum += count
+    count += 1
+
+print("The sum of natural numbers from 1 to", n, "is", sum)

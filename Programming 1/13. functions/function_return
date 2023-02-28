@@ -1,8 +1,1 @@
-def add_numbers():
-    num1 = int(input("Enter first number: "))
-    num2 = int(input("Enter second number: "))
-    return num1 + num2
-
-
-result = add_numbers()
-print("The sum of the two numbers is:", result)
+# functions are block of codes that you can call later in your code to run it

@@ -1,1 +1,3 @@
 # for loops
+
+# banned words

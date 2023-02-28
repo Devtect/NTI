@@ -1,10 +1,9 @@
-# using shelve module
 import shelve
 
 # Open a shelve file
-
+with shelve.open(filename) as data:
     # Store data in the shelve file
-    
+    data['key'] = value
 
     # Retrieve data from the shelve file
-    
+    print(data['key'])

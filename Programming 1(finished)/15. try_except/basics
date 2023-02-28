@@ -1,0 +1,14 @@
+# to test is, add or remove the code in the line 2
+x = 6
+# tries to do something
+try:
+    print(x)
+# only executes if there is an error
+except:
+    print("There was an unknown error")
+# only executes if there is no error
+else:
+    print(f"The number is {x}")
+# executes regardsless if there is en error or not
+finally:
+    print("The code has finished")

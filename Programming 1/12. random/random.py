@@ -1,2 +1,1 @@
-# Random
-import random
+# Random module and methods
