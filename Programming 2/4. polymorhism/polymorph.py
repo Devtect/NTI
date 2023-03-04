@@ -52,7 +52,7 @@ for vehicle in (plane, car):
 
 #------------------------------------------------------------------------------------------------------
 
-# Inheritance polymorphism (Method overriding)
+# Inheritance polymorphism 
 
 class Vehicle:
     def engine(self):
