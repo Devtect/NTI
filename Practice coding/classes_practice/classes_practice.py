@@ -45,13 +45,13 @@ player2 = Character("Bob", 5, 50, 10, 20)
 
 # Player 1 attacks player 2
 player1.attack(player2)
-print(player2.health)
+
 # Check if player 2 is still alive
 print(player2.is_alive())
-print(player2.health)
+
 # Heal player 1
 player2.heal(10)
-print(player2.health)
+
 # Player 1 attacks player 2 again
 player1.attack(player2)
 
