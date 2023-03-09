@@ -14,5 +14,5 @@ for ($i = 0; $i -lt $MyArray.Count; $i ++){
 $Numbers = @("1", "2", "3", "4") 
 # Figure out how to use "null" so the index starts from 1
 for ($i = 0; $i -lt 4; $i ++) {
-    echo ("Element: $i Value:" + $Numbers[$i])
+    Write-Output ("Element: $i Value:" + $Numbers[$i])
 }
