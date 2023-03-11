@@ -40,7 +40,7 @@ class Character:
         return self.health > 0
 
 # Create instances of two characters
-player1 = Character("Alice", 10, 100, 20, 10)
+player1 = Character("Alice", 10, 100, 50, 10)
 player2 = Character("Bob", 5, 50, 10, 20)
 
 # Player 1 attacks player 2
