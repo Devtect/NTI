@@ -1,4 +1,6 @@
 class Car:  # Creating a class called Car
+    boost_amt = 200
+
     # Creating properties for the class called Car
     def __init__(self, brand, color, horsepower):
         self.brand = brand  # Creating the property named brand of the car
@@ -9,16 +11,14 @@ class Car:  # Creating a class called Car
         return f"Brand: {self.brand} Color: {self.color} HP: {self.horsepower}"
     
     def boost(self):
-        self.horsepower += 200
-        return f"{self.brand} has been boosted to {self.horsepower} horsepower!"
-    
-class Superbike(Car):
-    pass
-
-car1 = Superbike("BMW", "Black", 500)  # Creating the 1st car with properties
-car2 = Superbike("Lexus", "Blue", 650)
+        self.horsepower = self.horsepower + self.boost_amt
+        return f"{self.brand} has been boosted!"
 
 
-print(car1)
-print("Brand:", car1.brand +" "+"Color:", car1.color +" "+"HP:", car1.horsepower)
-print(car1.boost())
+vehicle1 = Car("BMW", "Black", 500)  # Creating the 1st car with properties
+vehicle2 = Car("Lexus", "Blue", 650)
+
+print(vehicle1)
+print(vehicle1.boost())
+print(vehicle1)
+
