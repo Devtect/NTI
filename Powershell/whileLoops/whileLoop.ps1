@@ -6,5 +6,3 @@ while(condition){
 }
 variable reset
 #>
-
-
